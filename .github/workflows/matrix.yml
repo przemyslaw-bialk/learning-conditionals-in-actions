@@ -1,0 +1,16 @@
+name: Matrix Demo
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v6
+      - name: install node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: install dependencies
+        run: npm ci
+      - name: build project
+        run: npm run build
